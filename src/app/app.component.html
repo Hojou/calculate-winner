@@ -1,3 +1,4 @@
-<h1>
-  {{title}}
-</h1>
+<h1>Angular 2</h1>
+    <app-players (playersReady)="playersReady($event)" *ngIf="!players"></app-players>
+    <app-matches *ngIf="players" [players]=players (winnerFound)="winnerFound($event)"></app-matches>
+    <h3 *ngIf="winner">{{ winner.name }} won!</h3>
