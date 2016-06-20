@@ -3,39 +3,39 @@
         <col>
         <col>
         <col>
-        <col>
-        <col>
     </colgroup>
     <thead>
         <tr>
-            <th>P1</th>
-            <th>P2</th>
             <th>S1</th>
             <th>S2</th>
             <th>S3</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let match of matches">
-            <td>{{ match.player1.name }}</td>
-            <td>{{ match.player2.name }}</td>
-            <td>
-                <input type="number" [(ngModel)]="match.player1Sets[0]"> / 
-                <input type="number" [(ngModel)]="match.player2Sets[0]">
-            </td>
-            <td>
-                <input type="number" [(ngModel)]="match.player1Sets[1]"> / 
-                <input type="number" [(ngModel)]="match.player2Sets[1]">
-            </td>
-            <td>
-                <input type="number" [(ngModel)]="match.player1Sets[2]"> /
-                <input type="number" [(ngModel)]="match.player2Sets[2]">
-            </td>
-        </tr>
+        <template ngFor let-match [ngForOf]="matches">
+            <tr>
+                <td colspan="3">{{ match.player1.name }} vs. {{ match.player2.name }}</td>
+            <tr>
+            <tr>
+                <td>
+                    <input type="number" [(ngModel)]="match.player1Sets[0]"> / 
+                    <input type="number" [(ngModel)]="match.player2Sets[0]">
+                </td>
+                <td>
+                    <input type="number" [(ngModel)]="match.player1Sets[1]"> / 
+                    <input type="number" [(ngModel)]="match.player2Sets[1]">
+                </td>
+                <td>
+                    <input type="number" [(ngModel)]="match.player1Sets[2]"> /
+                    <input type="number" [(ngModel)]="match.player2Sets[2]">
+                </td>
+            </tr>
+        </template>
     </tbody>
 </table>
+<hr>
 <div>
-    <button type="button" (click)="calculateWinner()">Calculate winner</button>
+    <button type="button" (click)="calculateWinner()">Calculate winner</button> &nbsp; <button type="button" (click)="startOver()">Start over</button>
 </div>
 
 
