@@ -6,8 +6,14 @@ import {PlayerStatistics} from './playerStatistics';
 export class MatchService {
 
 
-    calculateWinner(matches: Array<Match>) {
-        let winners: Array<PlayerStatistics> = this.calculateWinners(matches);
+    calculateWinner(matches: Array<Match>): any {
+        let winners: Array<PlayerStatistics>;
+        try {
+            winners = this.calculateWinners(matches);
+        } catch (e) {
+            return { reasons: [{ text: e }] };
+        }
+
         let reasons: Array<any> = new Array<any>();
 
         let mostWins = winners[0].wonCount;
