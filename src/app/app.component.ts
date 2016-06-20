@@ -23,4 +23,9 @@ export class AppComponent {
         console.log('winnerData', winnerData);
         this.winnerData = winnerData;
     }
+
+    restart() {
+        this.winnerData = null;
+        this.players = null;
+    }
 }

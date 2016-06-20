@@ -12,6 +12,7 @@ import { MatchService } from '../match.service';
 export class MatchesComponent implements OnChanges {
     @Input() players: Array<any>;
     @Output() winnerFound: EventEmitter<any> = new EventEmitter<any>();
+    @Output() restart: EventEmitter<any> = new EventEmitter<any>();
     matches: Array<Match>;
 
     constructor(private matchService: MatchService) {}
@@ -30,6 +31,10 @@ export class MatchesComponent implements OnChanges {
         this.matches.forEach((m) => m.finishMatch());
         let winner = this.matchService.calculateWinner(this.matches);
         this.winnerFound.next(winner);
+    }
+
+    startOver() {
+        this.restart.next(null);
     }
 
 }

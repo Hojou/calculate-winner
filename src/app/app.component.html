@@ -1,5 +1,5 @@
     <app-players (playersReady)="playersReady($event)" *ngIf="!players"></app-players>
-    <app-matches *ngIf="players" [players]=players (winnerFound)="winnerFound($event)"></app-matches>
+    <app-matches *ngIf="players" [players]=players (winnerFound)="winnerFound($event)" (restart)="restart($event)"></app-matches>
     
     <div *ngIf="winnerData">
         <h2 *ngIf="winnerData.winner">Winner is {{ winnerData.winner.name }}</h2>
