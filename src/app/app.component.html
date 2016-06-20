@@ -1,4 +1,9 @@
-<h1>Angular 2</h1>
     <app-players (playersReady)="playersReady($event)" *ngIf="!players"></app-players>
     <app-matches *ngIf="players" [players]=players (winnerFound)="winnerFound($event)"></app-matches>
-    <h3 *ngIf="winner">{{ winner.name }} won!</h3>
+    
+    <div *ngIf="winnerData">
+        <h4>{{ winnerData.winner.name }} won!</h4>
+        <div *ngFor="let reason of winnerData.reasons">
+            <strong>{{ reason.text }}</strong><span *ngIf="reason.details">: {{ reason.details }}</span>
+        </div>
+    </div>

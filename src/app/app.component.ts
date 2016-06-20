@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { PlayersComponent } from './players/players.component';
 import { MatchesComponent } from './matches/matches.component';
 
-
 @Component({
   moduleId: module.id,
   directives: [PlayersComponent, MatchesComponent],
@@ -12,15 +11,15 @@ import { MatchesComponent } from './matches/matches.component';
 })
 export class AppComponent {
     players: Array<any>;
-    winner: any;
+    winnerData: any;
 
     playersReady(players: Array<any>) {
-        this.winner = null;
+        this.winnerData = null;
         console.log('playersReady in app', players);
         this.players = players;
     }
 
-    winnerFound(winner: any) {
-        this.winner = winner;
+    winnerFound(winnerData: any) {
+        this.winnerData = winnerData;
     }
 }
