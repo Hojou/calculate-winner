@@ -1,4 +1,5 @@
 <div *ngFor="let player of players">{{ player.name }}&nbsp;<button type="button" (click)="removePlayer(player)">X</button></div>
 <div><input #newPlayer type="text" (keyup.enter)="addPlayer(newPlayer.value)"><button type="button" 
 (click)="addPlayer(newPlayer.value)">ADD</button></div>
+<hr>
 <div><button type="button" (click)="createMatches()">GO</button></div>

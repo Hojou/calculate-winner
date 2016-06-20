@@ -5,9 +5,21 @@
  * User Configuration.
  **********************************************************************************************/
 /** Map relative paths to URLs. */
-var map = {};
+var map = {
+    '@angular2-material': 'vendor/@angular2-material'
+};
 /** User packages configuration. */
 var packages = {};
+// put the names of any of your Material components here
+var materialPkgs = [
+    'core',
+    'button',
+    'card',
+    'input'
+];
+materialPkgs.forEach(function (pkg) {
+    packages[("@angular2-material/" + pkg)] = { main: pkg + ".js" };
+});
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /***********************************************************************************************
  * Everything underneath this line is managed by the CLI.
