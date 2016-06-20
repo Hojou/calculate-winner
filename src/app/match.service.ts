@@ -13,7 +13,7 @@ export class MatchService {
         let mostWins = winners[0].wonCount;
         let equalWins = winners.filter((w) => w.wonCount === mostWins);
         if (equalWins.length === 1) { // 1. Vundne kampe
-            reasons.push({ text: 'Most matches won.', reason: `${mostWins} matches won by ${equalWins[0].player.name}.`});
+            reasons.push({ text: 'Most matches won.', details: `${mostWins} matches won by ${equalWins[0].player.name}.`});
             return { winner: equalWins[0].player, reasons: reasons }; 
         } 
         reasons.push({ text: 'No single players had the most wins.', details: `${mostWins} matches won by ${equalWins.length} players.` });        
@@ -21,7 +21,7 @@ export class MatchService {
             let mutualMatch = this.findMutualMatch(equalWins, matches); 
             reasons.push({ 
                 text: 'Two players had the same number of wins. Winner found in mutual match.', 
-                reason: `Mutual match ${mutualMatch.winner.name} vs. ${mutualMatch.looser.name} won by ${mutualMatch.winner.name}.`
+                details: `Mutual match ${mutualMatch.winner.name} vs. ${mutualMatch.looser.name} won by ${mutualMatch.winner.name}.`
             });
             return { winner: mutualMatch.winner, reasons: reasons }; 
         } 
@@ -32,7 +32,7 @@ export class MatchService {
         if (equalSets.length === 1) { // 3. Difference i sæt 
             reasons.push({ 
                 text: 'One player had the most sets won difference.', 
-                reason: `${mostSets} sets difference won by ${equalSets[0].player.name}.`
+                details: `${mostSets} sets difference won by ${equalSets[0].player.name}.`
             });
             return { winner: equalSets[0].player, reasons: reasons }; 
         }
@@ -41,7 +41,7 @@ export class MatchService {
             let mutualMatch = this.findMutualMatch(equalSets, matches); 
             reasons.push({ 
                 text: 'Two players had the same number of set differences. Winner found in mutual match.', 
-                reason: `Mutual match ${mutualMatch.winner.name} vs. ${mutualMatch.looser.name} won by ${mutualMatch.winner.name}.`
+                details: `Mutual match ${mutualMatch.winner.name} vs. ${mutualMatch.looser.name} won by ${mutualMatch.winner.name}.`
             });
             return { winner: mutualMatch.winner, reasons: reasons }; 
         }
@@ -52,7 +52,7 @@ export class MatchService {
         if (equalPoints.length === 1) { // 4. Difference i point 
             reasons.push({ 
                 text: 'One player had the most points difference.', 
-                reason: `${mostPoints} points difference won by ${equalPoints[0].player.name}.`
+                details: `${mostPoints} points difference won by ${equalPoints[0].player.name}.`
             });
             return { winner: equalPoints[0].player, reasons: reasons }; 
         }
@@ -61,7 +61,7 @@ export class MatchService {
             let mutualMatch = this.findMutualMatch(equalPoints, matches); 
             reasons.push({ 
                 text: 'Two players had the same number of points differences. Winner found in mutual match.', 
-                reason: `Mutual match ${mutualMatch.winner.name} vs. ${mutualMatch.looser.name} won by ${mutualMatch.winner.name}.`
+                details: `Mutual match ${mutualMatch.winner.name} vs. ${mutualMatch.looser.name} won by ${mutualMatch.winner.name}.`
             });
             return { winner: mutualMatch.winner, reasons: reasons }; 
         }

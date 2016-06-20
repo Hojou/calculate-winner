@@ -20,6 +20,7 @@ export class AppComponent {
     }
 
     winnerFound(winnerData: any) {
+        console.log('winnerData', winnerData);
         this.winnerData = winnerData;
     }
 }
